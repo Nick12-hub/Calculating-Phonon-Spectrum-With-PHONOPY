@@ -26,7 +26,7 @@ NBLOCK = 1
 KBLOCK = 1
 IBRION = 2
 NELM   = 80     
-EDIFF  = 1E-08  !always 1e-08 is enough 
+EDIFF  = 1E-08   !always 1e-08 is enough 
 EDIFFG = -0.001 
 ALGO   = Normal
 LDIAG  = .TRUE.
@@ -44,10 +44,81 @@ ICORELEVEL =  1
 ```
 ### OPTCELL
 For 2d materials,we often add this.Like follwing:
-
 ```
 100
 110
 000
 ```
 ## Establishing a supercell with Phonopy code
+### Rename
+Rename Output file（__CONTCAR__） of the previous step to POSCAR
+```
+cp CONTCAR POSCAR
+```
+### Establishing a supercell
+```
+phonopy -d --dim="a a 1" ! a depends on how big supercell you want and you should adherence to the principle of symmetry。
+```
+### Rename
+```
+cp POSCAR POSCAR-unitcell
+cp SPOSCAR POSCAR
+```
+## Calculating Hessian matrix for phonon frequencies
+### INCAR 
+```
+ISTART = 0
+NWRITE = 2
+IBRION = 8    !maybe you can try IBRION=6,it may have little differences
+NSW    = 1
+IALGO  = 38
+NELM   = 200
+EDIFF  = 1E-07
+EDIFFG = -0.001
+ISMEAR = 0.   !Gaussian smearing
+SIGMA  = 0.02
+ENCUT  = 500
+PREC   = Accurate
+LREAL  = .FALSE.
+LWAVE  = .FALSE.
+LCHARG = .FALSE.
+ADDGRID = .TRUE.
+```
+### KPOINTS
+If your machines'RAM are enough,increase KPOINTS may be a great choice!
+
+### Running tips
+It is a wise Initiative to estimate the consume RAM and decrease Number of cores properly.
+
+## Data processing
+Phonopy will generate __FORCE_CONSTRAINS__ which is based on __vasprun.xml__.
+### Generate FORCE_CONSTRAINS
+```
+phonopy --fc vasprun.xml
+```
+### Self-editing file:__band.conf__
+You should generate by yourself and modify it.
+```
+touch band.conf
+
+vi band.conf
+
+Add following
+
+ATOM_NAME = 
+DIM = a a 1 !depends on phonopy -d --dim="a a 1"
+BAND = 0.5 0.0 0.0  0.0 0.0 0.0  0.333333 0.333333 0.0  0.5 0.0 0.0 ！KPOINTS of high symmetry
+FORCE_CONSTANTS = READ
+
+`enter` ESC and :wq!
+
+```
+### Generate band.yaml
+```
+phonopy --dim="a a 1" -c POSCAR-unitcell band.conf
+```
+And the last process is:
+```
+phonopy-bandplot  --gnuplot> PBAND.dat
+```
+Then you will get __PBAND.dat__ and you can draw figures by Origin Gnuplot Matlab and so on!
