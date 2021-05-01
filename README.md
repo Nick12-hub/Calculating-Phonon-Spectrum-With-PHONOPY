@@ -100,18 +100,14 @@ phonopy --fc vasprun.xml
 You should generate by yourself and modify it.
 ```
 touch band.conf
-
 vi band.conf
-
-Add following
 
 ATOM_NAME = 
 DIM = a a 1 !depends on phonopy -d --dim="a a 1"
 BAND = 0.5 0.0 0.0  0.0 0.0 0.0  0.333333 0.333333 0.0  0.5 0.0 0.0 ！KPOINTS of high symmetry
 FORCE_CONSTANTS = READ
 
-`enter` ESC and :wq!
-
+ENTER->"ESC" and :wq!
 ```
 ### Generate band.yaml
 ```
@@ -122,3 +118,7 @@ And the last process is:
 phonopy-bandplot  --gnuplot> PBAND.dat
 ```
 Then you will get __PBAND.dat__ and you can draw figures by Origin Gnuplot Matlab and so on!
+
+The simple tutorial is ending and thanks for __yong He__.
+
+You can refer to his tutorials!Click[:link: HERE](https://yh-phys.github.io).
