@@ -13,7 +13,6 @@ I show a example which contain __INCAR__ file
 
 ### INCAR
 ```
-
 SYSTEM = 2D_InSe
 ISTART = 0
 NWRITE = 2   
@@ -27,19 +26,28 @@ NBLOCK = 1
 KBLOCK = 1
 IBRION = 2
 NELM   = 80     
-EDIFF  = 1E-08
+EDIFF  = 1E-08  !always 1e-08 is enough 
 EDIFFG = -0.001 
 ALGO   = Normal
 LDIAG  = .TRUE.
 LREAL  = .FALSE.
-ISMEAR = 0
+ISMEAR = 0       !Gaussian smearing
 SIGMA  = 0.02
 ICHARG = 2
 LPLANE = .TRUE.
-NPAR   = 4
+NPAR   = 4.      !Pay attention to use this option,it is apply on Supercomputing.
 LSCALU = .FALSE.
 NSIM   = 4
 LWAVE  = .FALSE.
 LCHARG = .FALSE.
 ICORELEVEL =  1
 ```
+### OPTCELL
+For 2d materials,we often add this.Like follwing:
+
+```
+100
+110
+000
+```
+## Establishing a supercell with Phonopy code
