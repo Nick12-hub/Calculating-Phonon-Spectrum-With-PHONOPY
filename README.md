@@ -12,7 +12,8 @@ It is worth noting that the calculation of the phonon spectrum needs to be fully
 I show a example which contain __INCAR__ file
 
 ### INCAR
-'''
+```
+
 SYSTEM = 2D_InSe
 ISTART = 0
 NWRITE = 2   
@@ -41,4 +42,4 @@ NSIM   = 4
 LWAVE  = .FALSE.
 LCHARG = .FALSE.
 ICORELEVEL =  1
-'''
+```
