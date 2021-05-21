@@ -85,7 +85,7 @@ LCHARG = .FALSE.
 ADDGRID = .TRUE.
 ```
 ### KPOINTS
-If your machines'RAM are enough,increase KPOINTS may be a great choice!
+If your machines'RAM is enough,increase KPOINTS may be a great choice!
 
 ### Running tips
 It is a wise Initiative to estimate the consume RAM and decrease Number of cores properly.
@@ -118,6 +118,8 @@ And the last process is:
 phonopy-bandplot  --gnuplot> PBAND.dat
 ```
 Then you will get __PBAND.dat__ and you can draw figures by Origin Gnuplot Matlab and so on!
+
+If the __false frequencies__ still exists,change the "**phonopy -d --dim="a a 1"**".Whether to take the **larger or the smaller** often depends on experience！
 
 The simple tutorial is ending and thanks for __yong He__.
 
