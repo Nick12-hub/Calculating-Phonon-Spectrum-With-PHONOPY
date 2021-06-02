@@ -55,16 +55,16 @@ For 2d materials,we often add this.Like follwing:
 ### Rename
 Rename Output file（__CONTCAR__） of the previous step to POSCAR
 ```
-cp CONTCAR POSCAR
+>cp CONTCAR POSCAR
 ```
 ### Establishing a supercell
 ```
-phonopy -d --dim="a a 1" 
+>phonopy -d --dim="a a 1" 
 ```
 ### Rename
 ```
-cp POSCAR POSCAR-unitcell
-cp SPOSCAR POSCAR
+>cp POSCAR POSCAR-unitcell
+>cp SPOSCAR POSCAR
 ```
 ## Calculating Hessian matrix for phonon frequencies
 ### INCAR 
@@ -86,7 +86,7 @@ LCHARG = .FALSE.
 ADDGRID = .TRUE.
 ```
 ### KPOINTS
-If your machines'RAM is enough,increase KPOINTS may be a great choice!
+If your machines or Servers'RAM is totally enough,try to increase KPOINTS may be a better choice!
 
 ### Running tips
 It is a wise Initiative to estimate the consume RAM and decrease Number of cores properly.
@@ -95,29 +95,30 @@ It is a wise Initiative to estimate the consume RAM and decrease Number of cores
 Phonopy will generate __FORCE_CONSTRAINS__ which is based on __vasprun.xml__.
 ### Generate FORCE_CONSTRAINS
 ```
-phonopy --fc vasprun.xml
+>phonopy --fc vasprun.xml
 ```
 ### Self-editing file:__band.conf__
 You should generate by yourself and modify it.
 ```
-touch band.conf
-vi band.conf
+>touch band.conf
+>vi band.conf
 
 ATOM_NAME = 
 DIM = a a 1 
 BAND = 0.5 0.0 0.0  0.0 0.0 0.0  0.333333 0.333333 0.0  0.5 0.0 0.0 
+BAND_LABELS = M G K M
 FORCE_CONSTANTS = READ
 
-ENTER->"ESC" and :wq!
+>ENTER->"ESC" and :wq!
 ```
 Pay attention to "DIM = a a 1"!It depends on "phonopy -d --dim="a a 1" 
 ### Generate band.yaml
 ```
-phonopy --dim="a a 1" -c POSCAR-unitcell band.conf
+>phonopy --dim="a a 1" -c POSCAR-unitcell band.conf
 ```
 And the last process is:
 ```
-phonopy-bandplot  --gnuplot> PBAND.dat
+>phonopy-bandplot  --gnuplot> PBAND.dat
 ```
 Then you will get __PBAND.dat__ and you can draw figures by Origin Gnuplot Matlab etc.(The Phonopy‘s default is __51 Points__ between two __high symmetry points__)
 
