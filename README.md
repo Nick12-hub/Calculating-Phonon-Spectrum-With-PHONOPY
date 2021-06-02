@@ -119,6 +119,10 @@ phonopy-bandplot  --gnuplot> PBAND.dat
 ```
 Then you will get __PBAND.dat__ and you can draw figures by Origin Gnuplot Matlab etc.(The Phonopy‘s default is __51 Points__ between two __high symmetry points__)
 
+<img width="807" alt="band_points" src="https://user-images.githubusercontent.com/62950321/120494725-a3a40400-c3ee-11eb-8417-67eefaa6daca.png">
+
+More details could be seen at Click[:link: HERE](http://phonopy.github.io/phonopy/setting-tags.html#band-and-band-points)
+
 If the __false frequencies__ still exists,change the "**phonopy -d --dim="a a 1"**".Whether to take the **larger or the smaller** often depends on experience！
 
 The simple tutorial is ending and thanks for __Yong He__ !
