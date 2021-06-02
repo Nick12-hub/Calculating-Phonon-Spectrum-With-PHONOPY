@@ -1,7 +1,9 @@
 # A Simple Tutorials for calculating Phonon 
 Calculating Phonon may be simple compared to other calculating process.
 
-Now I show a example for calculting Phonon with __VASP.5.4.4+Phonopy.2.3.2__.
+More details coule be got at Click[:link: Here](http://phonopy.github.io/phonopy/index.html)
+
+Now I show a simple example for calculting Phonon based on  __VASP.5.4.4+Phonopy.2.3.2__.
 
 ## Installation and Configuration
 It is easy and you can refer this article.click[:link: HERE](https://phonopy.github.io/phonopy/Fleur.html).
