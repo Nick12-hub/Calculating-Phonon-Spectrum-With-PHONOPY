@@ -26,16 +26,16 @@ NBLOCK = 1
 KBLOCK = 1
 IBRION = 2
 NELM   = 80     
-EDIFF  = 1E-08   !always 1e-08 is enough 
+EDIFF  = 1E-08   
 EDIFFG = -0.001 
 ALGO   = Normal
 LDIAG  = .TRUE.
 LREAL  = .FALSE.
-ISMEAR = 0       !Gaussian smearing
+ISMEAR = 0       
 SIGMA  = 0.02
 ICHARG = 2
 LPLANE = .TRUE.
-NPAR   = 4.      !Pay attention to use this option,it is apply on Supercomputing.
+NPAR   = 4.      
 LSCALU = .FALSE.
 NSIM   = 4
 LWAVE  = .FALSE.
@@ -57,7 +57,7 @@ cp CONTCAR POSCAR
 ```
 ### Establishing a supercell
 ```
-phonopy -d --dim="a a 1" ! a depends on how big supercell you want and you should adherence to the principle of symmetry。
+phonopy -d --dim="a a 1" 
 ```
 ### Rename
 ```
@@ -69,13 +69,12 @@ cp SPOSCAR POSCAR
 ```
 ISTART = 0
 NWRITE = 2
-IBRION = 8    !maybe you can try IBRION=6,it may have little differences
-NSW    = 1
+IBRION = 8    
 IALGO  = 38
 NELM   = 200
 EDIFF  = 1E-07
 EDIFFG = -0.001
-ISMEAR = 0.   !Gaussian smearing
+ISMEAR = 0   
 SIGMA  = 0.02
 ENCUT  = 500
 PREC   = Accurate
@@ -103,8 +102,8 @@ touch band.conf
 vi band.conf
 
 ATOM_NAME = 
-DIM = a a 1 !depends on phonopy -d --dim="a a 1"
-BAND = 0.5 0.0 0.0  0.0 0.0 0.0  0.333333 0.333333 0.0  0.5 0.0 0.0 ！KPOINTS of high symmetry
+DIM = a a 1 
+BAND = 0.5 0.0 0.0  0.0 0.0 0.0  0.333333 0.333333 0.0  0.5 0.0 0.0 
 FORCE_CONSTANTS = READ
 
 ENTER->"ESC" and :wq!
@@ -121,6 +120,6 @@ Then you will get __PBAND.dat__ and you can draw figures by Origin Gnuplot Matla
 
 If the __false frequencies__ still exists,change the "**phonopy -d --dim="a a 1"**".Whether to take the **larger or the smaller** often depends on experience！
 
-The simple tutorial is ending and thanks for __yong He__.
+The simple tutorial is ending and thanks for __Yong He__ !
 
 You can refer to his tutorials!Click[:link: HERE](https://yh-phys.github.io).
