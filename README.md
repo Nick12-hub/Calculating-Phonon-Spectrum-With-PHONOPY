@@ -108,6 +108,7 @@ FORCE_CONSTANTS = READ
 
 ENTER->"ESC" and :wq!
 ```
+Pay attention to "DIM = a a 1"!It depends on "phonopy -d --dim="a a 1" 
 ### Generate band.yaml
 ```
 phonopy --dim="a a 1" -c POSCAR-unitcell band.conf
@@ -116,7 +117,7 @@ And the last process is:
 ```
 phonopy-bandplot  --gnuplot> PBAND.dat
 ```
-Then you will get __PBAND.dat__ and you can draw figures by Origin Gnuplot Matlab and so on!
+Then you will get __PBAND.dat__ and you can draw figures by Origin Gnuplot Matlab etc.(The Phonopy‘s default is __51 Points__ between two __high symmetry points__)
 
 If the __false frequencies__ still exists,change the "**phonopy -d --dim="a a 1"**".Whether to take the **larger or the smaller** often depends on experience！
 
