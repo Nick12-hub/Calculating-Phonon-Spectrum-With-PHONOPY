@@ -29,7 +29,7 @@ KBLOCK = 1
 IBRION = 2
 NELM   = 80     
 EDIFF  = 1E-08   
-EDIFFG = -0.001 
+EDIFFG = -0.001 # Perhaps such high accuracy cannot be converged in one step, at which point if an error is reported, try distribution optimisation to make it converge
 ALGO   = Normal
 LDIAG  = .TRUE.
 LREAL  = .FALSE.
@@ -37,7 +37,7 @@ ISMEAR = 0
 SIGMA  = 0.02
 ICHARG = 2
 LPLANE = .TRUE.
-NPAR   = 4.      
+#NPAR  = 4   # If you are not using supercomputers, do not add this parameter as it may cause an error to be reported！      
 LSCALU = .FALSE.
 NSIM   = 4
 LWAVE  = .FALSE.
@@ -90,6 +90,8 @@ If your machines or Servers'RAM is totally enough,try to increase KPOINTS may be
 
 ### Running tips
 It is a wise Initiative to estimate the consume RAM and decrease Number of cores properly.
+
+When entering the operation step of the mechanics matrix, the memory will suddenly increase and this may crash your program. So please allow sufficient running memory when entering the second step.
 
 ## Data processing
 Phonopy will generate __FORCE_CONSTRAINS__ which is based on __vasprun.xml__.
