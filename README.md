@@ -132,6 +132,8 @@ If the __false frequencies__ still exists,change the "**phonopy -d --dim="a a 1"
 
 Sometimes it is unstable in the **non-magnetic** state, so we need to verify and illustrate the phonon spectrum in the **ferromagnetic** and **antiferromagnetic** cases！Don't forget to add the parameter **RWIGS** and **MAGMOM**!
 
+For 2D materials,if you use **VASP+Phonopy** for calculation,It may have littte false frequencies.It is not a great problem,you can show it in your paper!
+
 The simple tutorial is ending and thanks for __Yong He__ !
 
 You can refer to his tutorials!Click[:link: HERE](https://yh-phys.github.io).
