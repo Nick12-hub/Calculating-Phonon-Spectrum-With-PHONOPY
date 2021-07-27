@@ -130,7 +130,7 @@ More details could be seen at Click[:link: HERE](http://phonopy.github.io/phonop
 
 If the __false frequencies__ still exists,change the "**phonopy -d --dim="a a 1"**".Whether to take the **larger or the smaller** often depends on experience！
 
-Sometimes it is unstable in the **non-magnetic** state, so we need to verify and illustrate the phonon spectrum in the **ferromagnetic** and **antiferromagnetic** cases！
+Sometimes it is unstable in the **non-magnetic** state, so we need to verify and illustrate the phonon spectrum in the **ferromagnetic** and **antiferromagnetic** cases！Don't forget to add the parameter **RWIGS** and **MAGMOM**!
 
 The simple tutorial is ending and thanks for __Yong He__ !
 
